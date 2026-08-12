@@ -18,7 +18,7 @@ export function Faq() {
             FAQ
           </p>
           <h2 className="mt-3 font-serif text-3xl font-bold text-navy sm:text-4xl">
-            Частые вопросы
+            Часті запитання
           </h2>
         </div>
 

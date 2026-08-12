@@ -12,24 +12,24 @@ import { toast } from "sonner";
 const OCCASIONS = [
   {
     id: "newyear",
-    label: "Новогодний стол",
+    label: "Новорічний стіл",
     icon: PartyPopper,
     productId: "set-novogodniy",
-    note: "Яркое ассорти из трёх видов икры для праздничного застолья",
+    note: "Яскраве асорті з трьох видів ікри для святкового застілля",
   },
   {
     id: "business",
-    label: "Подарок бизнес-партнёру",
+    label: "Подарунок бізнес-партнеру",
     icon: Briefcase,
     productId: "set-business",
-    note: "Статусный набор в деревянном ларце с гравировкой",
+    note: "Статусний набір у дерев'яній скриньці з гравіюванням",
   },
   {
     id: "family",
-    label: "Семейный ужин",
+    label: "Сімейна вечеря",
     icon: Gift,
     productId: "set-family",
-    note: "Уютный набор для тёплого вечера в кругу семьи",
+    note: "Затишний набір для теплого вечора в колі родини",
   },
 ] as const;
 
@@ -49,14 +49,14 @@ export function OccasionPicker() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-gold">
             <Sparkle className="size-3.5" />
-            Подборщик
+            Підбірник
           </p>
           <h2 className="mt-3 font-serif text-3xl font-bold text-white sm:text-4xl">
-            Подберите икру к вашему столу
+            Підберіть ікру до вашого столу
           </h2>
           <p className="mt-4 text-white/60">
-            Расскажите, для какого повода нужна икра — мы подберём готовый
-            набор.
+            Розкажіть, для якого приводу потрібна ікра — ми підберемо готовий
+            набір.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export function OccasionPicker() {
             </div>
             <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">
               <span className="w-fit rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold">
-                Рекомендуем
+                Рекомендуємо
               </span>
               <h3 className="font-serif text-2xl font-bold text-white">{product.name}</h3>
               <p className="text-sm leading-relaxed text-white/65">{active.note}</p>
@@ -108,10 +108,10 @@ export function OccasionPicker() {
                 <Button
                   onClick={() => {
                     addItem(product.id, pack.weight, 1);
-                    toast.success(`${product.name} добавлен в корзину`);
+                    toast.success(`${product.name} додано в кошик`);
                   }}
                 >
-                  Добавить в корзину
+                  Додати в кошик
                 </Button>
               </div>
             </div>

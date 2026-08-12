@@ -19,8 +19,8 @@ import { formatPrice, cn } from "@/lib/utils";
 import type { PaymentMethod } from "@/types";
 
 const PAYMENT_OPTIONS: { id: PaymentMethod; label: string; icon: typeof CreditCard }[] = [
-  { id: "card-courier", label: "Картой курьеру", icon: CreditCard },
-  { id: "cash", label: "Наличными", icon: Wallet },
+  { id: "card-courier", label: "Карткою кур'єру", icon: CreditCard },
+  { id: "cash", label: "Готівкою", icon: Wallet },
   { id: "online", label: "Онлайн-оплата", icon: Landmark },
 ];
 
@@ -56,32 +56,32 @@ export function CheckoutDialog() {
         {submitted ? (
           <div className="flex flex-col items-center gap-3 py-6 text-center">
             <CheckCircle2 className="size-14 text-emerald" />
-            <DialogTitle>Заказ оформлен!</DialogTitle>
+            <DialogTitle>Замовлення оформлено!</DialogTitle>
             <p className="text-sm text-muted-foreground">
-              Наш менеджер свяжется с вами в течение 15 минут для подтверждения
-              деталей доставки.
+              Наш менеджер зв'яжеться з вами протягом 15 хвилин для
+              підтвердження деталей доставки.
             </p>
             <Button className="mt-2" onClick={() => handleClose(false)}>
-              Отлично
+              Чудово
             </Button>
           </div>
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle>Оформление заказа</DialogTitle>
+              <DialogTitle>Оформлення замовлення</DialogTitle>
               <DialogDescription>
-                Заполните данные для доставки — мы свяжемся для подтверждения.
+                Заповніть дані для доставки — ми зв'яжемося для підтвердження.
               </DialogDescription>
             </DialogHeader>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="col-span-2 flex flex-col gap-1.5">
-                  <Label htmlFor="checkout-name">Имя</Label>
+                  <Label htmlFor="checkout-name">Ім'я</Label>
                   <input
                     id="checkout-name"
                     required
-                    placeholder="Иван Иванов"
+                    placeholder="Іван Іванов"
                     className="h-11 rounded-full border border-border bg-white px-4 text-sm focus:border-gold focus:outline-none"
                   />
                 </div>
@@ -91,16 +91,16 @@ export function CheckoutDialog() {
                     id="checkout-phone"
                     type="tel"
                     required
-                    placeholder="+7 (___) ___-__-__"
+                    placeholder="+380 (__) ___-__-__"
                     className="h-11 rounded-full border border-border bg-white px-4 text-sm focus:border-gold focus:outline-none"
                   />
                 </div>
                 <div className="col-span-2 flex flex-col gap-1.5">
-                  <Label htmlFor="checkout-address">Адрес доставки</Label>
+                  <Label htmlFor="checkout-address">Адреса доставки</Label>
                   <input
                     id="checkout-address"
                     required
-                    placeholder="Город, улица, дом, квартира"
+                    placeholder="Місто, вулиця, будинок, квартира"
                     className="h-11 rounded-full border border-border bg-white px-4 text-sm focus:border-gold focus:outline-none"
                   />
                 </div>
@@ -114,7 +114,7 @@ export function CheckoutDialog() {
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <Label htmlFor="checkout-time">Время</Label>
+                  <Label htmlFor="checkout-time">Час</Label>
                   <input
                     id="checkout-time"
                     type="time"
@@ -125,7 +125,7 @@ export function CheckoutDialog() {
               </div>
 
               <div>
-                <Label>Способ оплаты</Label>
+                <Label>Спосіб оплати</Label>
                 <RadioGroup
                   value={payment}
                   onValueChange={(v) => setPayment(v as PaymentMethod)}
@@ -152,12 +152,12 @@ export function CheckoutDialog() {
               <Separator />
 
               <div className="flex items-center justify-between font-serif text-lg font-bold text-navy">
-                <span>Итого к оплате</span>
+                <span>Разом до оплати</span>
                 <span>{formatPrice(total)}</span>
               </div>
 
               <Button type="submit" size="lg">
-                Подтвердить заказ
+                Підтвердити замовлення
               </Button>
             </form>
           </>

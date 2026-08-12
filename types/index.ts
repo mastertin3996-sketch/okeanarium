@@ -8,7 +8,7 @@ export interface Category {
 export interface PackOption {
   weight: number; // in grams
   label: string; // "100 г"
-  price: number; // price in RUB for this pack
+  price: number; // price in UAH for this pack
 }
 
 export type ProductBadge = "bestseller" | "premium" | "fresh" | "new";

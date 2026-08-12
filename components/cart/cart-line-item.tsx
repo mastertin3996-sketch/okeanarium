@@ -30,7 +30,7 @@ export function CartLineItem({ item }: { item: CartItem }) {
           </p>
           <button
             onClick={() => removeItem(item.productId, item.packWeight)}
-            aria-label="Удалить товар"
+            aria-label="Видалити товар"
             className="shrink-0 text-navy/30 transition-colors hover:text-destructive"
           >
             <Trash2 className="size-4" />
@@ -57,7 +57,7 @@ export function CartLineItem({ item }: { item: CartItem }) {
           <div className="flex items-center gap-2 rounded-full border border-border">
             <button
               onClick={() => setQuantity(item.productId, item.packWeight, item.quantity - 1)}
-              aria-label="Уменьшить количество"
+              aria-label="Зменшити кількість"
               className="flex size-7 items-center justify-center rounded-full text-navy transition-colors hover:bg-cream-dark"
             >
               <Minus className="size-3" />
@@ -67,7 +67,7 @@ export function CartLineItem({ item }: { item: CartItem }) {
             </span>
             <button
               onClick={() => setQuantity(item.productId, item.packWeight, item.quantity + 1)}
-              aria-label="Увеличить количество"
+              aria-label="Збільшити кількість"
               className="flex size-7 items-center justify-center rounded-full text-navy transition-colors hover:bg-cream-dark"
             >
               <Plus className="size-3" />
@@ -75,7 +75,7 @@ export function CartLineItem({ item }: { item: CartItem }) {
           </div>
           <p className="font-serif text-sm font-bold text-navy">{formatPrice(lineTotal)}</p>
         </div>
-        <p className="text-[11px] text-muted-foreground">{formatPrice(pack.price)} / шт</p>
+        <p className="text-[11px] text-muted-foreground">{formatPrice(pack.price)} / шт.</p>
       </div>
     </div>
   );

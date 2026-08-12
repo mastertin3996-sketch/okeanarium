@@ -18,10 +18,10 @@ export function Reviews() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-gold-dark">
-            Отзывы
+            Відгуки
           </p>
           <h2 className="mt-3 font-serif text-3xl font-bold text-navy sm:text-4xl">
-            Нам доверяют
+            Нам довіряють
           </h2>
         </div>
 
@@ -63,7 +63,7 @@ export function Reviews() {
           <div className="mt-8 flex items-center justify-center gap-3">
             <button
               onClick={prev}
-              aria-label="Предыдущий отзыв"
+              aria-label="Попередній відгук"
               className="flex size-10 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors hover:border-gold hover:text-gold-dark"
             >
               <ChevronLeft className="size-4" />
@@ -73,7 +73,7 @@ export function Reviews() {
                 <button
                   key={r.id}
                   onClick={() => setIndex(i)}
-                  aria-label={`Отзыв ${i + 1}`}
+                  aria-label={`Відгук ${i + 1}`}
                   className={cn(
                     "h-1.5 rounded-full transition-all",
                     i === index ? "w-6 bg-gold" : "w-1.5 bg-navy/15"
@@ -83,7 +83,7 @@ export function Reviews() {
             </div>
             <button
               onClick={next}
-              aria-label="Следующий отзыв"
+              aria-label="Наступний відгук"
               className="flex size-10 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors hover:border-gold hover:text-gold-dark"
             >
               <ChevronRight className="size-4" />
@@ -106,7 +106,7 @@ export function Reviews() {
             >
               <img
                 src={src}
-                alt="Икра Океанариум"
+                alt="Ікра Океанаріум"
                 loading="lazy"
                 className="size-full aspect-square object-cover transition-transform duration-500 hover:scale-110"
               />

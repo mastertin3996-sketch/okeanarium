@@ -11,10 +11,10 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { href: "#catalog", label: "Каталог" },
-  { href: "#quality", label: "О качестве" },
-  { href: "#reviews", label: "Отзывы" },
-  { href: "#delivery", label: "Доставка и оплата" },
-  { href: "#contacts", label: "Контакты" },
+  { href: "#quality", label: "Про якість" },
+  { href: "#reviews", label: "Відгуки" },
+  { href: "#delivery", label: "Доставка та оплата" },
+  { href: "#contacts", label: "Контакти" },
 ];
 
 export function Header() {
@@ -46,7 +46,7 @@ export function Header() {
             <Waves className="size-5" />
           </span>
           <span className="font-serif text-xl font-bold tracking-wide text-white">
-            Океанариум
+            Океанаріум
           </span>
         </Link>
 
@@ -64,11 +64,11 @@ export function Header() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="tel:+74951234567"
+            href="tel:+380441234567"
             className="hidden xl:flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-gold transition-colors"
           >
             <Phone className="size-4 text-gold" />
-            +7 (495) 123-45-67
+            +380 (44) 123-45-67
           </a>
           <Button
             variant="outlineLight"
@@ -76,11 +76,11 @@ export function Header() {
             className="hidden md:inline-flex"
             onClick={() => setCallbackOpen(true)}
           >
-            Заказать звонок
+            Замовити дзвінок
           </Button>
 
           <button
-            aria-label="Корзина"
+            aria-label="Кошик"
             onClick={toggleCart}
             className="relative flex size-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10"
           >
@@ -128,11 +128,11 @@ export function Header() {
           </nav>
           <div className="mt-3 flex flex-col gap-3 border-t border-white/10 pt-4">
             <a
-              href="tel:+74951234567"
+              href="tel:+380441234567"
               className="flex items-center gap-2 text-sm font-semibold text-white"
             >
               <Phone className="size-4 text-gold" />
-              +7 (495) 123-45-67
+              +380 (44) 123-45-67
             </a>
             <Button
               variant="default"
@@ -141,7 +141,7 @@ export function Header() {
                 setMobileOpen(false);
               }}
             >
-              Заказать звонок
+              Замовити дзвінок
             </Button>
           </div>
         </motion.div>

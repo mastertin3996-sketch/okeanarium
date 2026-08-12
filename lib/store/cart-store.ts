@@ -3,8 +3,8 @@ import { persist } from "zustand/middleware";
 import type { CartItem } from "@/types";
 import { getProductById } from "@/data/products";
 
-const FREE_SHIPPING_THRESHOLD = 10000;
-const SHIPPING_COST = 500;
+const FREE_SHIPPING_THRESHOLD = 3000;
+const SHIPPING_COST = 150;
 
 interface PromoState {
   code: string | null;
@@ -13,7 +13,7 @@ interface PromoState {
 
 const PROMO_CODES: Record<string, number> = {
   ОКЕАН10: 10,
-  ИКРА15: 15,
+  ІКРА15: 15,
 };
 
 interface CartState {

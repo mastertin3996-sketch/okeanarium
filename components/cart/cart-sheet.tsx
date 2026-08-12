@@ -39,9 +39,9 @@ export function CartSheet() {
     if (!promoInput.trim()) return;
     const ok = applyPromo(promoInput);
     if (ok) {
-      toast.success(`Промокод применён: −${useCartStore.getState().promo.discountPercent}%`);
+      toast.success(`Промокод застосовано: −${useCartStore.getState().promo.discountPercent}%`);
     } else {
-      toast.error("Промокод не найден");
+      toast.error("Промокод не знайдено");
     }
   };
 
@@ -52,16 +52,16 @@ export function CartSheet() {
           <SheetHeader>
             <SheetTitle className="flex items-center gap-2">
               <ShoppingBag className="size-5 text-gold-dark" />
-              Корзина
+              Кошик
             </SheetTitle>
           </SheetHeader>
 
           {items.length === 0 ? (
             <div className="flex flex-1 flex-col items-center justify-center gap-3 px-6 text-center">
               <ShoppingBag className="size-10 text-navy/20" />
-              <p className="text-sm text-muted-foreground">Ваша корзина пуста</p>
+              <p className="text-sm text-muted-foreground">Ваш кошик порожній</p>
               <Button variant="outline" onClick={closeCart}>
-                Перейти к каталогу
+                Перейти до каталогу
               </Button>
             </div>
           ) : (
@@ -72,10 +72,10 @@ export function CartSheet() {
                     <Truck className="size-3.5 text-gold-dark" />
                     {amountToFreeShipping > 0 ? (
                       <span>
-                        До бесплатной доставки: {formatPrice(amountToFreeShipping)}
+                        До безкоштовної доставки: {formatPrice(amountToFreeShipping)}
                       </span>
                     ) : (
-                      <span>Бесплатная доставка активирована</span>
+                      <span>Безкоштовну доставку активовано</span>
                     )}
                   </div>
                   <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white">
@@ -105,7 +105,7 @@ export function CartSheet() {
                     />
                   </div>
                   <Button variant="outline" size="sm" className="h-10" onClick={handleApplyPromo}>
-                    Применить
+                    Застосувати
                   </Button>
                 </div>
 
@@ -114,7 +114,7 @@ export function CartSheet() {
                     <span>
                       Промокод {promo.code} (−{promo.discountPercent}%)
                     </span>
-                    <button onClick={clearPromo} aria-label="Убрать промокод">
+                    <button onClick={clearPromo} aria-label="Прибрати промокод">
                       <X className="size-3.5" />
                     </button>
                   </div>
@@ -122,29 +122,29 @@ export function CartSheet() {
 
                 <div className="flex flex-col gap-1.5 text-sm">
                   <div className="flex justify-between text-muted-foreground">
-                    <span>Сумма</span>
+                    <span>Сума</span>
                     <span>{formatPrice(subtotal)}</span>
                   </div>
                   {discount > 0 && (
                     <div className="flex justify-between text-emerald">
-                      <span>Скидка</span>
+                      <span>Знижка</span>
                       <span>−{formatPrice(discount)}</span>
                     </div>
                   )}
                   <div className="flex justify-between text-muted-foreground">
                     <span>Доставка</span>
                     <span className={cn(shipping === 0 && "text-emerald font-semibold")}>
-                      {shipping === 0 ? "Бесплатно" : formatPrice(shipping)}
+                      {shipping === 0 ? "Безкоштовно" : formatPrice(shipping)}
                     </span>
                   </div>
                   <div className="mt-1 flex justify-between border-t border-border pt-2 font-serif text-base font-bold text-navy">
-                    <span>Итого</span>
+                    <span>Разом</span>
                     <span>{formatPrice(total)}</span>
                   </div>
                 </div>
 
                 <Button size="lg" onClick={() => setCheckoutOpen(true)}>
-                  Оформить заказ
+                  Оформити замовлення
                 </Button>
               </SheetFooter>
             </>

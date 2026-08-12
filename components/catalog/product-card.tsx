@@ -25,7 +25,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
   const handleAddToCart = () => {
     addItem(product.id, activePack.weight, 1);
-    toast.success(`${product.name} добавлена в корзину`, {
+    toast.success(`${product.name} додано в кошик`, {
       description: `${activePack.label} · ${formatPrice(activePack.price)}`,
     });
   };
@@ -69,7 +69,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
           <div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-navy/50">
-              Фасовка
+              Фасування
             </p>
             <div className="flex flex-wrap gap-1.5">
               {product.packs.map((pack) => (
@@ -92,7 +92,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           <div className="mt-auto flex items-end justify-between gap-3 pt-2">
             <div>
               <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                Цена за {activePack.label}
+                Ціна за {activePack.label}
               </p>
               <p className="font-serif text-2xl font-bold text-navy">
                 {formatPrice(activePack.price)}
@@ -102,7 +102,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
           <div className="flex flex-col gap-2 sm:flex-row">
             <Button variant="outline" className="flex-1" onClick={handleAddToCart}>
-              В корзину
+              У кошик
             </Button>
             <Button
               variant="navy"
@@ -110,7 +110,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               onClick={() => openQuickOrder({ productId: product.id, packWeight: activePack.weight })}
             >
               <Zap className="size-4" />
-              В 1 клик
+              В 1 клік
             </Button>
           </div>
         </div>

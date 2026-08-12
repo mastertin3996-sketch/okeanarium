@@ -58,7 +58,7 @@ function DialogContent({
         {showClose && (
           <DialogPrimitive.Close className="absolute top-4 right-4 rounded-full p-1.5 text-navy/50 hover:bg-navy/5 hover:text-navy transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold">
             <X className="size-4" />
-            <span className="sr-only">Закрыть</span>
+            <span className="sr-only">Закрити</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Content>

@@ -34,12 +34,12 @@ export function CallbackDialog() {
         {submitted ? (
           <div className="flex flex-col items-center gap-3 py-6 text-center">
             <CheckCircle2 className="size-14 text-emerald" />
-            <DialogTitle>Спасибо!</DialogTitle>
+            <DialogTitle>Дякуємо!</DialogTitle>
             <p className="text-sm text-muted-foreground">
-              Наш менеджер перезвонит вам в ближайшее время.
+              Наш менеджер передзвонить вам найближчим часом.
             </p>
             <Button className="mt-2" onClick={() => handleClose(false)}>
-              Закрыть
+              Закрити
             </Button>
           </div>
         ) : (
@@ -47,20 +47,20 @@ export function CallbackDialog() {
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
                 <PhoneCall className="size-5 text-gold-dark" />
-                Заказать звонок
+                Замовити дзвінок
               </DialogTitle>
               <DialogDescription>
-                Оставьте номер телефона — мы перезвоним в течение 15 минут.
+                Залиште номер телефону — ми передзвонимо протягом 15 хвилин.
               </DialogDescription>
             </DialogHeader>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="flex flex-col gap-1.5">
-                <Label htmlFor="callback-name">Имя</Label>
+                <Label htmlFor="callback-name">Ім'я</Label>
                 <input
                   id="callback-name"
                   required
-                  placeholder="Иван Иванов"
+                  placeholder="Іван Іванов"
                   className="h-11 rounded-full border border-border bg-white px-4 text-sm focus:border-gold focus:outline-none"
                 />
               </div>
@@ -70,12 +70,12 @@ export function CallbackDialog() {
                   id="callback-phone"
                   type="tel"
                   required
-                  placeholder="+7 (___) ___-__-__"
+                  placeholder="+380 (__) ___-__-__"
                   className="h-11 rounded-full border border-border bg-white px-4 text-sm focus:border-gold focus:outline-none"
                 />
               </div>
               <Button type="submit" size="lg" className="mt-1">
-                Жду звонка
+                Чекаю на дзвінок
               </Button>
             </form>
           </>

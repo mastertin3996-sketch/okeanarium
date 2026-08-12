@@ -21,9 +21,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Океанариум — Премиальная икра с доставкой день в день",
+  title: "Океанаріум — Преміальна ікра з доставкою день у день",
   description:
-    "Икра осетра, кеты, горбуши и нерки прямых поставок. Контроль свежести, сертификация ГОСТ, доставка в термоконтейнерах по Москве и области.",
+    "Ікра осетра, кети, горбуші та нерки прямих постачань. Контроль свіжості, сертифікація ДСТУ, доставка в термоконтейнерах по Києву та області.",
 };
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="ru"
+      lang="uk"
       className={`${playfair.variable} ${jakarta.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-cream text-navy font-sans">

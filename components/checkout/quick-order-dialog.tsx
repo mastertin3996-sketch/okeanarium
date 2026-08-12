@@ -41,12 +41,13 @@ export function QuickOrderDialog() {
         {submitted ? (
           <div className="flex flex-col items-center gap-3 py-6 text-center">
             <CheckCircle2 className="size-14 text-emerald" />
-            <DialogTitle>Заявка принята!</DialogTitle>
+            <DialogTitle>Заявку прийнято!</DialogTitle>
             <p className="text-sm text-muted-foreground">
-              Мы перезвоним вам в течение 15 минут для подтверждения заказа.
+              Ми передзвонимо вам протягом 15 хвилин для підтвердження
+              замовлення.
             </p>
             <Button className="mt-2" onClick={() => handleClose(false)}>
-              Хорошо
+              Добре
             </Button>
           </div>
         ) : (
@@ -54,10 +55,11 @@ export function QuickOrderDialog() {
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
                 <Zap className="size-5 text-gold-dark" />
-                Быстрый заказ
+                Швидке замовлення
               </DialogTitle>
               <DialogDescription>
-                Оставьте имя и телефон — мы сами перезвоним и оформим заказ.
+                Залиште ім'я та телефон — ми самі передзвонимо й оформимо
+                замовлення.
               </DialogDescription>
             </DialogHeader>
 
@@ -81,11 +83,11 @@ export function QuickOrderDialog() {
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="flex flex-col gap-1.5">
-                <Label htmlFor="quick-name">Имя</Label>
+                <Label htmlFor="quick-name">Ім'я</Label>
                 <input
                   id="quick-name"
                   required
-                  placeholder="Иван Иванов"
+                  placeholder="Іван Іванов"
                   className="h-11 rounded-full border border-border bg-white px-4 text-sm focus:border-gold focus:outline-none"
                 />
               </div>
@@ -95,12 +97,12 @@ export function QuickOrderDialog() {
                   id="quick-phone"
                   type="tel"
                   required
-                  placeholder="+7 (___) ___-__-__"
+                  placeholder="+380 (__) ___-__-__"
                   className="h-11 rounded-full border border-border bg-white px-4 text-sm focus:border-gold focus:outline-none"
                 />
               </div>
               <Button type="submit" size="lg" className="mt-1">
-                Заказать в 1 клик
+                Замовити в 1 клік
               </Button>
             </form>
           </>

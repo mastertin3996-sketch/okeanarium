@@ -2,9 +2,9 @@ import { Badge } from "@/components/ui/badge";
 import type { ProductBadge } from "@/types";
 
 const BADGE_CONFIG: Record<ProductBadge, { label: string; variant: "gold" | "navy" | "emerald" | "outline" }> = {
-  bestseller: { label: "Хит продаж", variant: "navy" },
-  premium: { label: "Премиум", variant: "gold" },
-  fresh: { label: "Свежий улов", variant: "emerald" },
+  bestseller: { label: "Хіт продажів", variant: "navy" },
+  premium: { label: "Преміум", variant: "gold" },
+  fresh: { label: "Свіжий вилов", variant: "emerald" },
   new: { label: "Новинка", variant: "outline" },
 };
 
