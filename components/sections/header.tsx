@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, Phone, ShoppingBag, Waves, X } from "lucide-react";
+import { Menu, Phone, ShoppingBag, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/lib/store/cart-store";
 import { useUIStore } from "@/lib/store/ui-store";
@@ -42,9 +42,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="flex size-10 items-center justify-center rounded-full bg-gold/15 text-gold ring-1 ring-gold/40">
-            <Waves className="size-5" />
-          </span>
+          <img src="/logo-mark.png" alt="" className="h-10 w-auto shrink-0" />
           <span className="font-serif text-xl font-bold tracking-wide text-white">
             Океанаріум
           </span>
