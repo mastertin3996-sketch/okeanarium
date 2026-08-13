@@ -6,6 +6,7 @@ import { Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ProductBadges } from "@/components/catalog/product-badges";
+import { Tilt } from "@/components/effects/tilt";
 import { useCartStore } from "@/lib/store/cart-store";
 import { useUIStore } from "@/lib/store/ui-store";
 import { formatPrice } from "@/lib/utils";
@@ -38,7 +39,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
       transition={{ duration: 0.5, delay: Math.min(index, 6) * 0.06 }}
     >
       <Card className="group flex h-full flex-col overflow-hidden py-0 transition-shadow hover:shadow-xl">
-        <div className="relative aspect-[4/3] overflow-hidden bg-cream-dark">
+        <Tilt maxTilt={6} glare className="aspect-[4/3] overflow-hidden bg-cream-dark">
           <img
             src={product.image}
             alt={product.name}
@@ -52,7 +53,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             <Star className="size-3.5 fill-gold text-gold" />
             {product.rating}
           </div>
-        </div>
+        </Tilt>
 
         <div className="flex flex-1 flex-col gap-4 p-5">
           <div>

@@ -39,7 +39,7 @@ function SheetOverlay({
 }
 
 const sheetVariants = cva(
-  "bg-cream fixed z-50 flex flex-col gap-0 shadow-2xl transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
+  "bg-cream fixed z-50 flex flex-col gap-0 shadow-2xl transition data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=closed]:ease-in data-[state=open]:ease-[cubic-bezier(0.34,1.56,0.64,1)]",
   {
     variants: {
       side: {

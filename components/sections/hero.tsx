@@ -4,11 +4,29 @@ import { motion } from "framer-motion";
 import { Award, Snowflake, Sparkles, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroPhotoFrame } from "@/components/sections/hero-photo-frame";
+import { Magnetic } from "@/components/effects/magnetic";
+import { Tilt } from "@/components/effects/tilt";
+import { ParticleCanvas } from "@/components/effects/particle-canvas";
+import { CountUp } from "@/components/effects/count-up";
+import { cn } from "@/lib/utils";
 
 const FEATURES = [
   { icon: Waves, label: "Дикий вилов", sub: "Прямі постачання з промислу" },
   { icon: Award, label: "ДСТУ", sub: "Сертифікована продукція" },
   { icon: Snowflake, label: "−2…−4°C", sub: "Безперервний холодовий ланцюг" },
+];
+
+const TITLE_PARTS = [
+  { text: "Преміальна", gold: false },
+  { text: "ікра", gold: false },
+  { text: "з", gold: false },
+  { text: "доставкою", gold: false },
+  { text: "день", gold: true },
+  { text: "у", gold: true },
+  { text: "день", gold: true },
+  { text: "від", gold: false },
+  { text: "компанії", gold: false },
+  { text: "«Океанаріум»", gold: false },
 ];
 
 export function Hero() {
@@ -29,6 +47,7 @@ export function Hero() {
         className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/80 to-navy"
         aria-hidden
       />
+      <ParticleCanvas />
       <div
         className="absolute inset-0 bg-noise opacity-40"
         aria-hidden
@@ -53,9 +72,21 @@ export function Hero() {
             Преміальні морепродукти з 2009 року
           </span>
 
-          <h1 className="mt-6 font-serif text-4xl font-bold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl">
-            Преміальна ікра з доставкою{" "}
-            <span className="text-gold">день у день</span> від компанії «Океанаріум»
+          <h1
+            className="mt-6 font-serif text-4xl font-bold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl"
+            style={{ perspective: 800 }}
+          >
+            {TITLE_PARTS.map((part, i) => (
+              <motion.span
+                key={i}
+                className={cn("inline-block", part.gold && "shimmer-text")}
+                initial={{ opacity: 0, y: 26 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.15 + i * 0.06, ease: "easeOut" }}
+              >
+                {part.text}&nbsp;
+              </motion.span>
+            ))}
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
@@ -65,12 +96,16 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="lg" asChild>
-              <a href="#catalog">Обрати ікру</a>
-            </Button>
-            <Button size="lg" variant="outlineLight" asChild>
-              <a href="#quick-order">Швидке замовлення</a>
-            </Button>
+            <Magnetic>
+              <Button size="lg" asChild data-cursor-hover>
+                <a href="#catalog">Обрати ікру</a>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button size="lg" variant="outlineLight" asChild data-cursor-hover>
+                <a href="#quick-order">Швидке замовлення</a>
+              </Button>
+            </Magnetic>
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4">
@@ -96,13 +131,15 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           className="relative"
         >
-          <HeroPhotoFrame>
-            <img
-              src="/images/hero-jar-cutout.png"
-              alt="Банка ікри форелі Океанаріум"
-              className="relative h-full w-auto max-w-full object-contain drop-shadow-2xl"
-            />
-          </HeroPhotoFrame>
+          <Tilt maxTilt={7} className="w-full">
+            <HeroPhotoFrame>
+              <img
+                src="/images/hero-jar-cutout.png"
+                alt="Банка ікри форелі Океанаріум"
+                className="relative h-full w-auto max-w-full object-contain drop-shadow-2xl"
+              />
+            </HeroPhotoFrame>
+          </Tilt>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -110,7 +147,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="absolute bottom-4 -left-4 rounded-2xl border border-border bg-white p-4 shadow-xl sm:left-0 sm:p-5"
           >
-            <p className="font-serif text-2xl font-bold text-navy">12+ років</p>
+            <p className="font-serif text-2xl font-bold text-navy">
+              <CountUp to={12} suffix="+" /> років
+            </p>
             <p className="text-xs text-muted-foreground">на ринку преміальних морепродуктів</p>
           </motion.div>
         </motion.div>

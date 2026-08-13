@@ -7,6 +7,9 @@ import { CartSheet } from "@/components/cart/cart-sheet";
 import { QuickOrderDialog } from "@/components/checkout/quick-order-dialog";
 import { CallbackDialog } from "@/components/checkout/callback-dialog";
 import { Toaster } from "@/components/ui/sonner";
+import { CustomCursor } from "@/components/effects/custom-cursor";
+import { Preloader } from "@/components/effects/preloader";
+import { StickyCartBar } from "@/components/effects/sticky-cart-bar";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -35,10 +38,13 @@ export default function RootLayout({
       className={`${playfair.variable} ${jakarta.variable} h-full antialiased scroll-smooth scroll-pt-24`}
     >
       <body className="min-h-full flex flex-col bg-cream text-navy font-sans">
+        <Preloader />
+        <CustomCursor />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <CartSheet />
+        <StickyCartBar />
         <QuickOrderDialog />
         <CallbackDialog />
         <Toaster />
