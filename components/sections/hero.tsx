@@ -97,9 +97,9 @@ export function Hero() {
         >
           <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] border border-gold/20 shadow-2xl sm:max-w-lg">
             <img
-              src="https://images.unsplash.com/photo-1757961048219-df1bbd0be167?q=80&w=1200&auto=format&fit=crop"
-              alt="Преміальна чорна ікра Океанаріум"
-              className="size-full object-cover"
+              src="/images/hero-caviar-jar.jpg"
+              alt="Банка ікри форелі Океанаріум"
+              className="size-full object-cover object-[50%_58%]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
           </div>
