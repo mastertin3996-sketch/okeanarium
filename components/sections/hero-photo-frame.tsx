@@ -112,7 +112,7 @@ export function HeroPhotoFrame({ children }: { children: React.ReactNode }) {
       <Bubbles />
       <OrganicRings color={EMERALD} rings={3} speed={6.5} />
       <PulseSatellites colors={[CAVIAR, CAVIAR_LIGHT]} count={6} orbitSpeed={9} pulseSpeed={1.6} />
-      <div className="absolute inset-[12%] flex items-center justify-center">{children}</div>
+      <div className="absolute inset-[10%] flex items-center justify-center overflow-hidden">{children}</div>
     </div>
   );
 }

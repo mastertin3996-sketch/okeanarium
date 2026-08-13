@@ -100,7 +100,7 @@ export function Hero() {
             <img
               src="/images/hero-jar-cutout.png"
               alt="Банка ікри форелі Океанаріум"
-              className="relative w-full max-w-[280px] drop-shadow-2xl sm:max-w-sm"
+              className="relative h-full w-auto max-w-full object-contain drop-shadow-2xl"
             />
           </HeroPhotoFrame>
 
