@@ -8,6 +8,7 @@ import { Magnetic } from "@/components/effects/magnetic";
 import { Tilt } from "@/components/effects/tilt";
 import { ParticleCanvas } from "@/components/effects/particle-canvas";
 import { CountUp } from "@/components/effects/count-up";
+import { useAppReadyStore } from "@/lib/store/app-ready-store";
 import { cn } from "@/lib/utils";
 
 const FEATURES = [
@@ -30,6 +31,8 @@ const TITLE_PARTS = [
 ];
 
 export function Hero() {
+  const ready = useAppReadyStore((s) => s.ready);
+
   return (
     <section className="relative overflow-hidden bg-navy">
       <video
@@ -64,7 +67,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl gap-12 px-4 pt-32 pb-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-8 lg:pt-40 lg:pb-28">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold">
@@ -81,7 +84,7 @@ export function Hero() {
                 key={i}
                 className={cn("inline-block", part.gold && "shimmer-text")}
                 initial={{ opacity: 0, y: 26 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={ready ? { opacity: 1, y: 0 } : undefined}
                 transition={{ duration: 0.55, delay: 0.15 + i * 0.06, ease: "easeOut" }}
               >
                 {part.text}&nbsp;
@@ -113,7 +116,7 @@ export function Hero() {
               <motion.div
                 key={f.label}
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={ready ? { opacity: 1, y: 0 } : undefined}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                 className="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm sm:p-4"
               >
@@ -127,7 +130,7 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={ready ? { opacity: 1, scale: 1 } : undefined}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           className="relative"
         >
@@ -143,12 +146,12 @@ export function Hero() {
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={ready ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="absolute bottom-4 -left-4 rounded-2xl border border-border bg-white p-4 shadow-xl sm:left-0 sm:p-5"
           >
             <p className="font-serif text-2xl font-bold text-navy">
-              <CountUp to={12} suffix="+" /> років
+              <CountUp to={12} suffix="+" start={ready} /> років
             </p>
             <p className="text-xs text-muted-foreground">на ринку преміальних морепродуктів</p>
           </motion.div>

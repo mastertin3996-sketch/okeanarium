@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAppReadyStore } from "@/lib/store/app-ready-store";
 
 export function Preloader() {
   const [loading, setLoading] = useState(true);
+  const setReady = useAppReadyStore((s) => s.setReady);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -17,7 +19,7 @@ export function Preloader() {
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={setReady}>
       {loading && (
         <motion.div
           className="pointer-events-none fixed inset-0 z-[1000] flex items-center justify-center bg-navy"
