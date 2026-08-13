@@ -34,12 +34,13 @@ export function Preloader() {
             className="relative"
           >
             <motion.div
-              className="absolute inset-0 rounded-full bg-gold/20 blur-2xl"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/20 blur-2xl"
+              style={{ width: 340, height: 340 }}
               animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
               aria-hidden
             />
-            <img src="/logo-mark.png" alt="" className="relative w-20 sm:w-24" />
+            <img src="/logo-mark.png" alt="" className="relative w-56" />
           </motion.div>
         </motion.div>
       )}
