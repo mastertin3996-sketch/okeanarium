@@ -13,6 +13,21 @@ const FEATURES = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-navy">
+      <video
+        className="hero-video absolute inset-0 size-full object-cover"
+        poster="/video/hero-poster.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden
+      >
+        <source src="/video/hero-bg.mp4" type="video/mp4" />
+      </video>
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/80 to-navy"
+        aria-hidden
+      />
       <div
         className="absolute inset-0 bg-noise opacity-40"
         aria-hidden

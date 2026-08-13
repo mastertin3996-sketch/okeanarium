@@ -154,3 +154,9 @@ body {
   );
   background-size: 22px 22px;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+}
