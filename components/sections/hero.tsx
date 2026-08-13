@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Award, Snowflake, Sparkles, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HeroPhotoFrame } from "@/components/sections/hero-photo-frame";
 
 const FEATURES = [
   { icon: Waves, label: "Дикий вилов", sub: "Прямі постачання з промислу" },
@@ -95,17 +96,13 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           className="relative"
         >
-          <div className="relative mx-auto flex w-full max-w-md items-center justify-center sm:max-w-lg">
-            <div
-              className="absolute inset-0 rounded-full bg-gold/15 blur-3xl"
-              aria-hidden
-            />
+          <HeroPhotoFrame>
             <img
               src="/images/hero-jar-cutout.png"
               alt="Банка ікри форелі Океанаріум"
               className="relative w-full max-w-[280px] drop-shadow-2xl sm:max-w-sm"
             />
-          </div>
+          </HeroPhotoFrame>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
