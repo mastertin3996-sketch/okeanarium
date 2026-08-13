@@ -95,20 +95,23 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           className="relative"
         >
-          <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] border border-gold/20 shadow-2xl sm:max-w-lg">
-            <img
-              src="/images/hero-caviar-jar.jpg"
-              alt="Банка ікри форелі Океанаріум"
-              className="size-full object-cover object-[50%_58%]"
+          <div className="relative mx-auto flex w-full max-w-md items-center justify-center sm:max-w-lg">
+            <div
+              className="absolute inset-0 rounded-full bg-gold/15 blur-3xl"
+              aria-hidden
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+            <img
+              src="/images/hero-jar-cutout.png"
+              alt="Банка ікри форелі Океанаріум"
+              className="relative w-full max-w-[280px] drop-shadow-2xl sm:max-w-sm"
+            />
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="absolute -bottom-6 -left-4 rounded-2xl border border-border bg-white p-4 shadow-xl sm:-left-8 sm:p-5"
+            className="absolute bottom-4 -left-4 rounded-2xl border border-border bg-white p-4 shadow-xl sm:left-0 sm:p-5"
           >
             <p className="font-serif text-2xl font-bold text-navy">12+ років</p>
             <p className="text-xs text-muted-foreground">на ринку преміальних морепродуктів</p>
