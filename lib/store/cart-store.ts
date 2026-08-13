@@ -133,7 +133,10 @@ export const useCartStore = create<CartState>()(
 
       clearCart: () => set({ items: [], promo: { code: null, discountPercent: 0 } }),
     }),
-    { name: "okeanarium-cart" }
+    {
+      name: "okeanarium-cart",
+      partialize: (state) => ({ items: state.items, promo: state.promo }),
+    }
   )
 );
 
