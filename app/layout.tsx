@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="uk"
-      className={`${playfair.variable} ${jakarta.variable} h-full antialiased scroll-smooth`}
+      className={`${playfair.variable} ${jakarta.variable} h-full antialiased scroll-smooth scroll-pt-24`}
     >
       <body className="min-h-full flex flex-col bg-cream text-navy font-sans">
         <Header />

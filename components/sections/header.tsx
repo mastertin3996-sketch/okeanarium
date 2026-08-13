@@ -19,13 +19,21 @@ const NAV_LINKS = [
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  // Chromium doesn't composite backdrop-filter over the hero <video>
+  // correctly (the blur samples a blank frame instead of the video), so
+  // blur is only enabled once we've scrolled past the video-heavy part of
+  // the hero. Plain alpha transparency (no blur) always renders correctly.
+  const [pastVideo, setPastVideo] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const itemsCount = useCartStore((s) => s.items.reduce((sum, i) => sum + i.quantity, 0));
   const toggleCart = useCartStore((s) => s.toggleCart);
   const setCallbackOpen = useUIStore((s) => s.setCallbackOpen);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      setPastVideo(window.scrollY > 400);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -34,10 +42,11 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full transition-all duration-300",
+        "fixed inset-x-0 top-0 z-40 w-full border-b transition-all duration-300",
+        pastVideo && "backdrop-blur-sm",
         scrolled
-          ? "bg-navy/95 backdrop-blur-md shadow-lg"
-          : "bg-navy"
+          ? "bg-navy/70 border-white/10 shadow-lg"
+          : "bg-navy/45 border-white/5"
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
@@ -110,7 +119,7 @@ export function Header() {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="lg:hidden border-t border-white/10 bg-navy px-4 pb-6 pt-2"
+          className="lg:hidden border-t border-white/10 bg-navy/80 backdrop-blur-sm px-4 pb-6 pt-2"
         >
           <nav className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
