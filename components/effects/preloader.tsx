@@ -5,12 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useAppReadyStore } from "@/lib/store/app-ready-store";
 
 export function Preloader() {
+  // Must start `true` on both server and client (matching SSR output) — the real
+  // prefers-reduced-motion check can only run after mount, so it's applied inside the
+  // effect below rather than as the initial state, to avoid a hydration mismatch.
   const [loading, setLoading] = useState(true);
   const setReady = useAppReadyStore((s) => s.setReady);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing a client-only value post-mount, see comment above
       setLoading(false);
       return;
     }

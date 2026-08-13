@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
+  // Must start `false` on both server and client (matching SSR output) — the real
+  // pointer-type check can only run after mount, so it's applied inside the effect
+  // below rather than as the initial state, to avoid a hydration mismatch.
   const [enabled, setEnabled] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -14,9 +17,9 @@ export function CustomCursor() {
   const ringY = useSpring(y, { damping: 25, stiffness: 300, mass: 0.5 });
 
   useEffect(() => {
-    const fine = window.matchMedia("(pointer: fine)").matches;
-    setEnabled(fine);
-    if (!fine) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing a client-only value post-mount, see comment above
+    setEnabled(true);
 
     document.body.classList.add("custom-cursor-active");
 

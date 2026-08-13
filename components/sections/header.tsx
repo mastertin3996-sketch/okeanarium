@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, Phone, ShoppingBag, X } from "lucide-react";
@@ -24,15 +24,27 @@ export function Header() {
   // blur is only enabled once we've scrolled past the video-heavy part of
   // the hero. Plain alpha transparency (no blur) always renders correctly.
   const [pastVideo, setPastVideo] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const lastScrollY = useRef(0);
   const itemsCount = useCartStore((s) => s.items.reduce((sum, i) => sum + i.quantity, 0));
   const toggleCart = useCartStore((s) => s.toggleCart);
   const setCallbackOpen = useUIStore((s) => s.setCallbackOpen);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 12);
-      setPastVideo(window.scrollY > 400);
+      const y = window.scrollY;
+      setScrolled(y > 12);
+      setPastVideo(y > 400);
+
+      if (y < 120) {
+        setHidden(false);
+      } else if (y > lastScrollY.current) {
+        setHidden(true);
+      } else if (y < lastScrollY.current) {
+        setHidden(false);
+      }
+      lastScrollY.current = y;
     };
     onScroll();
     window.addEventListener("scroll", onScroll);
@@ -40,7 +52,9 @@ export function Header() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      animate={{ y: hidden && !mobileOpen ? "-100%" : "0%" }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
         "fixed inset-x-0 top-0 z-40 w-full border-b transition-all duration-300",
         pastVideo && "backdrop-blur-sm",
@@ -87,6 +101,7 @@ export function Header() {
           </Button>
 
           <button
+            data-cart-icon
             aria-label="Кошик"
             onClick={toggleCart}
             className="relative flex size-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10"
@@ -153,6 +168,6 @@ export function Header() {
           </div>
         </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 }

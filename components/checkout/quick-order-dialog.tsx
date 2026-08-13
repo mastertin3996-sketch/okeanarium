@@ -58,7 +58,7 @@ export function QuickOrderDialog() {
                 Швидке замовлення
               </DialogTitle>
               <DialogDescription>
-                Залиште ім'я та телефон — ми самі передзвонимо й оформимо
+                Залиште ім’я та телефон — ми самі передзвонимо й оформимо
                 замовлення.
               </DialogDescription>
             </DialogHeader>
@@ -83,7 +83,7 @@ export function QuickOrderDialog() {
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="flex flex-col gap-1.5">
-                <Label htmlFor="quick-name">Ім'я</Label>
+                <Label htmlFor="quick-name">Ім’я</Label>
                 <input
                   id="quick-name"
                   required

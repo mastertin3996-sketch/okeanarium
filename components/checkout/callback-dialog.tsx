@@ -56,7 +56,7 @@ export function CallbackDialog() {
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="flex flex-col gap-1.5">
-                <Label htmlFor="callback-name">Ім'я</Label>
+                <Label htmlFor="callback-name">Ім’я</Label>
                 <input
                   id="callback-name"
                   required

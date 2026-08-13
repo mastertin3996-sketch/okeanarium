@@ -14,12 +14,24 @@ export function Faq() {
     <section id="faq" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-gold-dark">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-xs font-semibold uppercase tracking-widest text-gold-dark"
+          >
             FAQ
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold text-navy sm:text-4xl">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="mt-3 font-serif text-3xl font-bold text-navy sm:text-4xl"
+          >
             Часті запитання
-          </h2>
+          </motion.h2>
         </div>
 
         <motion.div

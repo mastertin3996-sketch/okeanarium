@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Camera, MapPin, Phone, Mail, Send, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { AmbientBubbles, SwimmingFish } from "@/components/effects/ambient-ocean-life";
 
 const FOOTER_LINKS = [
   { href: "#catalog", label: "Каталог" },
@@ -25,8 +26,10 @@ export function Footer() {
   };
 
   return (
-    <footer id="contacts" className="bg-ink text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <footer id="contacts" className="relative overflow-hidden bg-ink text-white">
+      <AmbientBubbles />
+      <SwimmingFish />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
             <Link href="/" className="flex items-center gap-2.5">

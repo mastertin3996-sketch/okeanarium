@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { CustomCursor } from "@/components/effects/custom-cursor";
 import { Preloader } from "@/components/effects/preloader";
 import { StickyCartBar } from "@/components/effects/sticky-cart-bar";
+import { FlyToCartLayer } from "@/components/effects/fly-to-cart";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -45,6 +46,7 @@ export default function RootLayout({
         <Footer />
         <CartSheet />
         <StickyCartBar />
+        <FlyToCartLayer />
         <QuickOrderDialog />
         <CallbackDialog />
         <Toaster />

@@ -19,7 +19,7 @@ import { formatPrice, cn } from "@/lib/utils";
 import type { PaymentMethod } from "@/types";
 
 const PAYMENT_OPTIONS: { id: PaymentMethod; label: string; icon: typeof CreditCard }[] = [
-  { id: "card-courier", label: "Карткою кур'єру", icon: CreditCard },
+  { id: "card-courier", label: "Карткою кур’єру", icon: CreditCard },
   { id: "cash", label: "Готівкою", icon: Wallet },
   { id: "online", label: "Онлайн-оплата", icon: Landmark },
 ];
@@ -58,7 +58,7 @@ export function CheckoutDialog() {
             <CheckCircle2 className="size-14 text-emerald" />
             <DialogTitle>Замовлення оформлено!</DialogTitle>
             <p className="text-sm text-muted-foreground">
-              Наш менеджер зв'яжеться з вами протягом 15 хвилин для
+              Наш менеджер зв’яжеться з вами протягом 15 хвилин для
               підтвердження деталей доставки.
             </p>
             <Button className="mt-2" onClick={() => handleClose(false)}>
@@ -70,14 +70,14 @@ export function CheckoutDialog() {
             <DialogHeader>
               <DialogTitle>Оформлення замовлення</DialogTitle>
               <DialogDescription>
-                Заповніть дані для доставки — ми зв'яжемося для підтвердження.
+                Заповніть дані для доставки — ми зв’яжемося для підтвердження.
               </DialogDescription>
             </DialogHeader>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="col-span-2 flex flex-col gap-1.5">
-                  <Label htmlFor="checkout-name">Ім'я</Label>
+                  <Label htmlFor="checkout-name">Ім’я</Label>
                   <input
                     id="checkout-name"
                     required
