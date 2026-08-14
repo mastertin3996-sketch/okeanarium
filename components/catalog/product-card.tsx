@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Eye, Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -51,12 +52,13 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
     >
       <Card className="group flex h-full flex-col overflow-hidden py-0 transition-shadow hover:shadow-xl">
         <Tilt maxTilt={6} glare className="aspect-[4/3] overflow-hidden bg-cream-dark">
-          <img
+          <Image
             ref={imgRef}
             src={product.image}
             alt={product.name}
-            loading="lazy"
-            className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute left-3 top-3">
             <ProductBadges badges={product.badges} />

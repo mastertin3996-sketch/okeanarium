@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -75,12 +76,14 @@ export function ProductQuickViewDialog({
             ref={imgWrapRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="aspect-square cursor-zoom-in overflow-hidden rounded-2xl bg-cream-dark"
+            className="relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl bg-cream-dark"
           >
-            <img
+            <Image
               src={product.image}
               alt={product.name}
-              className="size-full object-cover transition-transform duration-200 ease-out"
+              fill
+              sizes="(max-width: 640px) 100vw, 50vw"
+              className="object-cover transition-transform duration-200 ease-out"
               style={zoomStyle}
             />
           </div>

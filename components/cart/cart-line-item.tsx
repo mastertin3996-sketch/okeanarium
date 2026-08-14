@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -50,7 +51,14 @@ export function CartLineItem({ item }: { item: CartItem }) {
             className="relative flex touch-pan-y gap-3 bg-cream py-4"
           >
             <div className="size-20 shrink-0 overflow-hidden rounded-xl bg-cream-dark">
-              <img src={product.image} alt={product.name} className="size-full object-cover" draggable={false} />
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={80}
+                height={80}
+                className="size-full object-cover"
+                draggable={false}
+              />
             </div>
 
             <div className="flex flex-1 flex-col gap-1.5">

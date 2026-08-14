@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { RotateCw } from "lucide-react";
 
@@ -72,7 +73,7 @@ export default function PreloaderLabPage() {
                 className="relative"
               >
                 <Glow size={220} />
-                <img src="/logo-mark.png" alt="" className="relative w-32" />
+                <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-32 h-auto" />
               </motion.div>
             )}
           </ReplayableCard>
@@ -87,7 +88,7 @@ export default function PreloaderLabPage() {
                 className="relative"
               >
                 <Glow size={260} />
-                <img src="/logo-mark.png" alt="" className="relative w-40" />
+                <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-40 h-auto" />
               </motion.div>
             )}
           </ReplayableCard>
@@ -102,7 +103,7 @@ export default function PreloaderLabPage() {
                 className="relative"
               >
                 <Glow size={300} />
-                <img src="/logo-mark.png" alt="" className="relative w-48" />
+                <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-48 h-auto" />
               </motion.div>
             )}
           </ReplayableCard>
@@ -117,7 +118,7 @@ export default function PreloaderLabPage() {
                 className="relative"
               >
                 <Glow size={340} />
-                <img src="/logo-mark.png" alt="" className="relative w-56" />
+                <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-56 h-auto" />
               </motion.div>
             )}
           </ReplayableCard>
@@ -132,7 +133,7 @@ export default function PreloaderLabPage() {
                   className="relative"
                 >
                   <Glow size={260} />
-                  <img src="/logo-mark.png" alt="" className="relative w-40" />
+                  <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-40 h-auto" />
                 </motion.div>
                 <motion.p
                   initial={{ opacity: 0, y: 8 }}
@@ -156,7 +157,7 @@ export default function PreloaderLabPage() {
                   className="relative"
                 >
                   <Glow size={300} />
-                  <img src="/logo-mark.png" alt="" className="relative w-48" />
+                  <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-48 h-auto" />
                 </motion.div>
                 <motion.p
                   initial={{ opacity: 0, y: 8 }}
@@ -188,7 +189,7 @@ export default function PreloaderLabPage() {
                 className="relative"
               >
                 <Glow size={300} opacity={[0.7, 1, 0.7]} />
-                <img src="/logo-mark.png" alt="" className="relative w-40" />
+                <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-40 h-auto" />
               </motion.div>
             )}
           </ReplayableCard>
@@ -210,7 +211,7 @@ export default function PreloaderLabPage() {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
                 />
-                <img src="/logo-mark.png" alt="" className="relative w-48" />
+                <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-48 h-auto" />
               </motion.div>
             )}
           </ReplayableCard>
@@ -225,7 +226,7 @@ export default function PreloaderLabPage() {
                 className="relative"
               >
                 <Glow size={260} />
-                <img src="/logo-mark.png" alt="" className="relative w-40" />
+                <Image src="/logo-mark.png" alt="" width={683} height={392} className="relative w-40 h-auto" />
               </motion.div>
             )}
           </ReplayableCard>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Menu, Phone, ShoppingBag, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -65,7 +66,14 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <img src="/logo-mark.png" alt="" className="h-10 w-auto shrink-0" />
+          <Image
+            src="/logo-mark.png"
+            alt=""
+            width={683}
+            height={392}
+            priority
+            className="h-10 w-auto shrink-0"
+          />
           <span className="font-serif text-xl font-bold tracking-wide text-white">
             Океанаріум
           </span>

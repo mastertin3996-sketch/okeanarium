@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useMemo, type CSSProperties, type ReactNode } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const IMG = "/images/hero-jar-cutout.png";
@@ -36,7 +37,7 @@ function wavyPath(cx: number, cy: number, r: number, amp: number, freq: number, 
 function Photo() {
   return (
     <div className="absolute rounded-full overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.08)]" style={{ inset: PHOTO_INSET }}>
-      <img src={IMG} alt="" className="size-full object-cover object-[50%_36%]" />
+      <Image src={IMG} alt="" fill sizes="220px" className="object-cover object-[50%_36%]" />
     </div>
   );
 }

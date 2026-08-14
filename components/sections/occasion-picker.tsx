@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, Gift, PartyPopper, Sparkle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -87,11 +88,13 @@ export function OccasionPicker() {
             transition={{ duration: 0.35 }}
             className="mt-10 grid gap-0 overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm sm:grid-cols-2"
           >
-            <div className="aspect-[4/3] sm:aspect-auto">
-              <img
+            <div className="relative aspect-[4/3] sm:aspect-auto">
+              <Image
                 src={product.image}
                 alt={product.name}
-                className="size-full object-cover"
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
             <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">

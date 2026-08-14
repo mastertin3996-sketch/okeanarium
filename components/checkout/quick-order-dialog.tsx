@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
 import { CheckCircle2, Zap } from "lucide-react";
 import {
   Dialog,
@@ -65,9 +66,11 @@ export function QuickOrderDialog() {
 
             {product && pack && (
               <div className="flex items-center gap-3 rounded-xl bg-cream-dark/60 p-3">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width={56}
+                  height={56}
                   className="size-14 shrink-0 rounded-lg object-cover"
                 />
                 <div className="min-w-0">

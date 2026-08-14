@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { reviews, galleryImages } from "@/data/reviews";
@@ -112,15 +113,16 @@ export function Reviews() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className={cn(
-                "overflow-hidden rounded-xl",
+                "relative aspect-square overflow-hidden rounded-xl",
                 i === 0 && "col-span-2 row-span-2"
               )}
             >
-              <img
+              <Image
                 src={src}
                 alt="Ікра Океанаріум"
-                loading="lazy"
-                className="size-full aspect-square object-cover transition-transform duration-500 hover:scale-110"
+                fill
+                sizes="(max-width: 640px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 hover:scale-110"
               />
             </motion.div>
           ))}

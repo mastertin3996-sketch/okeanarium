@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Award, Snowflake, Sparkles, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroPhotoFrame } from "@/components/sections/hero-photo-frame";
@@ -136,10 +137,13 @@ export function Hero() {
         >
           <Tilt maxTilt={7} className="w-full">
             <HeroPhotoFrame>
-              <img
+              <Image
                 src="/images/hero-jar-cutout.png"
                 alt="Банка ікри форелі Океанаріум"
-                className="relative h-full w-auto max-w-full object-contain drop-shadow-2xl"
+                fill
+                priority
+                sizes="(max-width: 640px) 90vw, 512px"
+                className="object-contain drop-shadow-2xl"
               />
             </HeroPhotoFrame>
           </Tilt>

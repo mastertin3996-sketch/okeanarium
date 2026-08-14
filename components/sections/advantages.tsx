@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, FlaskConical, Snowflake, ThermometerSnowflake, Truck, UtensilsCrossed } from "lucide-react";
 import {
@@ -111,11 +112,13 @@ export function Advantages() {
               безпечність та якість харчових продуктів».
             </DialogDescription>
           </DialogHeader>
-          <div className="overflow-hidden rounded-xl border border-border">
-            <img
+          <div className="relative aspect-[3/2] overflow-hidden rounded-xl border border-border">
+            <Image
               src="https://images.unsplash.com/photo-1641477176034-1a3e10c343a8?q=80&w=1000&auto=format&fit=crop"
               alt="Приклад сертифіката якості"
-              className="w-full object-cover"
+              fill
+              sizes="(max-width: 640px) 100vw, 600px"
+              className="object-cover"
             />
           </div>
           <p className="text-xs text-muted-foreground">

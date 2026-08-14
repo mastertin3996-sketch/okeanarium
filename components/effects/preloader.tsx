@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { useAppReadyStore } from "@/lib/store/app-ready-store";
 
 export function Preloader() {
@@ -43,7 +44,14 @@ export function Preloader() {
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
               aria-hidden
             />
-            <img src="/logo-mark.png" alt="" className="relative w-56" />
+            <Image
+              src="/logo-mark.png"
+              alt=""
+              width={683}
+              height={392}
+              priority
+              className="relative w-56 h-auto"
+            />
           </motion.div>
         </motion.div>
       )}

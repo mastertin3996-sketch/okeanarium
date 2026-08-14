@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Camera, MapPin, Phone, Mail, Send, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -33,7 +34,13 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <img src="/logo-mark.png" alt="" className="h-10 w-auto shrink-0" />
+              <Image
+                src="/logo-mark.png"
+                alt=""
+                width={683}
+                height={392}
+                className="h-10 w-auto shrink-0"
+              />
               <span className="font-serif text-xl font-bold text-white">Океанаріум</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/50">
